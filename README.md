@@ -2,6 +2,9 @@
 
 #### d3.js Load JSON from URI
 
+- sample01.html: 最簡單的範例！
+- sample02.html: 搭配 AngularJS 的範例！
+
 ~~~
 // Load Data from /data.json URL
 d3.json("data.json", function(error, root) {
