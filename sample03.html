@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.9/d3.js"></script>
+</head>
+<style>
+    /* 調整 d3 繪製出來的 SVG 樣式 */
+    .node circle {
+      fill: #fff;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
+
+    .node {
+      font: 10px sans-serif;
+    }
+
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 1.5px;
+    }
+</style>
+<body>
+    <pre>
+        ref: http://stackoverflow.com/questions/17416186/d3-nest-key-and-values-conversion-to-name-and-children
+        ref: http://bl.ocks.org/mbostock/4063570
+        ref: http://www.ourd3js.com/wordpress/?p=245
+    </pre>
+    <div class="viewport case-1"></div>
+    <div class="viewport case-2">
+        <svg width="800" height="800">
+            <!-- 平移向幼 40 pixel -->
+            <g transform="translate(80,0)"></g>
+        </svg>
+    </div>
+    <script>
+        var width = 800,
+            height = 800;
+
+        // 定义一个集群图布局, -100 橫向寬度減少 100 pixel
+        var cluster = d3.layout.cluster()
+            .size([width, height - 200]);
+
+        // 创建一个对角线生成器
+        var diagonal = d3.svg.diagonal()
+            .projection(function(d) {
+                return [d.y, d.x];
+            });
+
+
+        //
+        cluster.children(function(d){
+            return d.childrenSet;
+        });
+
+
+        // Add a visualize to Viewport
+        // 第一種方式
+        // var svg = d3.select("div.viewport.case-1")
+        //     .append("svg")
+        //     .attr("width", width)
+        //     .attr("height", height)
+        //     .append("g")
+        //     .attr("transform", "translate(40,0)");
+        // 第二種方式
+        var svg = d3.select("div.viewport.case-2 svg g");
+
+
+        // Load Data from /data.json URL
+        d3.json("sample03.json", function(error, root) {
+
+            // root is a json structure from this URI
+            var nodes = cluster.nodes(root);
+            var links = cluster.links(nodes);
+
+            console.debug('What\'s root?:', root);
+            console.debug('All Nodes(所有的節點總數):', nodes, nodes.length);
+            console.debug('All Links(所有點跟點之間的線段總數):', links, links.length);
+
+            var link = svg.selectAll(".link")
+                .data(links)
+                .enter()
+                .append("path")
+                .attr("class", "link")
+                .attr("d", diagonal);
+
+            var node = svg.selectAll(".node")
+                .data(nodes)
+                .enter()
+                .append("g")
+                .attr("class", "node")
+                .attr("transform", function(d) {
+                    return "translate(" + d.y + "," + d.x + ")";
+                })
+
+            node.append("circle")
+                .attr("r", 4.5);
+
+            node.append("text")
+                .attr("dx", function(d) {
+                    return d.children ? -8 : 8;
+                })
+                .attr("dy", 3)
+                .style("text-anchor", function(d) {
+                    return d.children ? "end" : "start";
+                })
+                .style("font-size","18px")
+                .text(function(d) {
+                    // 最後要顯示在畫面上 JSON 的欄位是 .label
+                    return d.label;
+                });
+        });
+    </script>
+</body>
+</html>

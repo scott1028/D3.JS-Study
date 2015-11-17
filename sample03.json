@@ -1,0 +1,87 @@
+{
+    "label": "中国",
+    "childrenSet": [{
+            "label": "浙江",
+            "childrenSet": [{
+                "label": "杭州"
+            }, {
+                "label": "宁波"
+            }, {
+                "label": "温州"
+            }, {
+                "label": "绍兴"
+            }]
+        },
+
+        {
+            "label": "广西",
+            "childrenSet": [{
+                "label": "桂林",
+                "childrenSet": [{
+                    "label": "秀峰区"
+                }, {
+                    "label": "叠彩区"
+                }, {
+                    "label": "象山区"
+                }, {
+                    "label": "七星区",
+                    "childrenSet": [
+                        {
+                            "label": "南宁1",
+                            "childrenSet": [
+                                {"label": "南宁4"},
+                                {"label": "南宁5"},
+                                {"label": "南宁6"},
+                                {
+                                    "label": "南宁7",
+                                    "childrenSet": [
+                                        {"label": "南宁8"},
+                                        {"label": "南宁9"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "南宁2"
+                        },
+                        {
+                            "label": "南宁3"
+                        }
+                    ]
+                }]
+            }, {
+                "label": "南宁"
+            }, {
+                "label": "柳州"
+            }, {
+                "label": "防城港"
+            }]
+        },
+
+        {
+            "label": "黑龙江",
+            "childrenSet": [{
+                "label": "哈尔滨"
+            }, {
+                "label": "齐齐哈尔"
+            }, {
+                "label": "牡丹江"
+            }, {
+                "label": "大庆"
+            }]
+        },
+
+        {
+            "label": "新疆",
+            "childrenSet": [{
+                "label": "乌鲁木齐"
+            }, {
+                "label": "克拉玛依"
+            }, {
+                "label": "吐鲁番"
+            }, {
+                "label": "哈密"
+            }]
+        }
+    ]
+}

@@ -4,6 +4,7 @@
 
 - sample01.html: 最簡單的範例！
 - sample02.html: 搭配 AngularJS 的範例！
+- sample01.html: 更換 .children .name 的 FieldName！
 
 ~~~
 // Load Data from /data.json URL
