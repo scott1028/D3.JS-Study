@@ -65,8 +65,8 @@
         //     .attr("height", height)
         //     .append("g")
         //     .attr("transform", "translate(40,0)");
-        // 第二種方式
-        var svg = d3.select("div.viewport.case-2 svg g");
+        // 第二種方式, 必使用 "> g" 否則會選擇到多个！
+        var svg = d3.select("div.viewport.case-2 svg > g");
 
 
         // Load Data from /data.json URL
