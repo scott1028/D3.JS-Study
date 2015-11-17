@@ -32,7 +32,7 @@
     <div class="viewport case-2">
         <svg width="800" height="800">
             <!-- 平移向幼 40 pixel -->
-            <g transform="translate(40,0)"></g>
+            <g transform="translate(80,0)"></g>
         </svg>
     </div>
     <script>
@@ -41,7 +41,7 @@
 
         // 定义一个集群图布局, -100 橫向寬度減少 100 pixel
         var cluster = d3.layout.cluster()
-            .size([width, height - 100]);
+            .size([width, height - 200]);
 
         // 创建一个对角线生成器
         var diagonal = d3.svg.diagonal()
@@ -98,6 +98,7 @@
                 .style("text-anchor", function(d) {
                     return d.children ? "end" : "start";
                 })
+                .style("font-size","18px")
                 .text(function(d) {
                     return d.name;
                 });
