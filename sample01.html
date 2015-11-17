@@ -30,17 +30,18 @@
     </pre>
     <div class="viewport case-1"></div>
     <div class="viewport case-2">
-        <svg width="500" height="500">
+        <svg width="800" height="800">
+            <!-- 平移向幼 40 pixel -->
             <g transform="translate(40,0)"></g>
         </svg>
     </div>
     <script>
-        var width = 500,
-            height = 500;
+        var width = 800,
+            height = 800;
 
-        // 定义一个集群图布局
+        // 定义一个集群图布局, -100 橫向寬度減少 100 pixel
         var cluster = d3.layout.cluster()
-            .size([width, height - 200]);
+            .size([width, height - 100]);
 
         // 创建一个对角线生成器
         var diagonal = d3.svg.diagonal()
