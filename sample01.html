@@ -5,9 +5,29 @@
     <title></title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.9/d3.js"></script>
 </head>
+<style>
+    /* 調整 d3 繪製出來的 SVG 樣式 */
+    .node circle {
+      fill: #fff;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
 
+    .node {
+      font: 10px sans-serif;
+    }
+
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 1.5px;
+    }
+</style>
 <body>
-    <pre>ref: http://www.ourd3js.com/wordpress/?p=245</pre>
+    <pre>
+        ref: http://bl.ocks.org/mbostock/4063570
+        ref: http://www.ourd3js.com/wordpress/?p=245
+    </pre>
     <script>
         var width = 500,
             height = 500;
