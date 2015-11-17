@@ -65,6 +65,7 @@
         // Load Data from /data.json URL
         d3.json("sample01.json", function(error, root) {
 
+            // root is a json structure from this URI
             var nodes = cluster.nodes(root);
             var links = cluster.links(nodes);
 
