@@ -7,7 +7,7 @@
 - sample01.html: 更換 .children .name 的 FieldName！
 - ref: http://nlpviz.bpodgursky.com/home
 - ref: http://bl.ocks.org/mbostock/999346 (樹狀圖同 Layer 對齊問題)
-- ref: https://github.com/mbostock/d3/wiki/Tree-Layout 使用 treeLayout
+- ref: https://github.com/mbostock/d3/wiki/Tree-Layout 使用 treeLayout (Node Level 對齊)
 
 ~~~
 // 讓 node & link 的繪製點移動
