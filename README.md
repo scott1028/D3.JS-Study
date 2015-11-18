@@ -7,6 +7,13 @@
 - sample01.html: 更換 .children .name 的 FieldName！
 - ref: http://nlpviz.bpodgursky.com/home
 - ref: http://bl.ocks.org/mbostock/999346 (樹狀圖同 Layer 對齊問題)
+~~~
+// 讓 node 的繪製點移動
+.attr("d", function(d) {
+        var o = {x: d.source.px, y: d.source.py};
+        return diagonal({source: o, target: o});
+    });
+~~~
 
 # Usage
 
