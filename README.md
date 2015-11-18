@@ -7,6 +7,42 @@
 - sample01.html: 更換 .children .name 的 FieldName！
 - ref: http://nlpviz.bpodgursky.com/home
 
+# Usage
+
+- D3 每個繪製物件的屬性都可以透過 Func 來設定例如 SVG 其中一個 Text Node！
+
+~~~
+node.append("text")
+    .attr("dx", function(d) {
+        return d.children ? -8 : 8;
+    })
+    .attr("dy", 7)
+    .style("text-anchor", function(d) {
+        return d.children ? "end" : "start";
+    })
+    .attr('fill', function(d){   // d 就是這一筆的 Node Json Object，可經由 cluster.nodes(root) 得到每一個 Node Json Object！
+        return (
+            (d.id === id)
+            ?
+            'red'
+            :
+            '#555555'
+        );
+    })
+    .style("font-size","16px")
+    .text(function(d) {
+        return d.dealerId + '-' + d.dealerName + (
+            (d.id === id)
+            ?
+            '( * )'
+            :
+            ''
+        );
+    });
+~~~
+
+Sample#1
+
 ~~~
 // Load Data from /data.json URL
 d3.json("data.json", function(error, root) {
