@@ -7,9 +7,20 @@
 - sample01.html: 更換 .children .name 的 FieldName！
 - ref: http://nlpviz.bpodgursky.com/home
 - ref: http://bl.ocks.org/mbostock/999346 (樹狀圖同 Layer 對齊問題)
+
 ~~~
 // 讓 node 的繪製點移動
-.attr("d", function(d) {
+// Add entering nodes in the parent’s old position.
+node.enter().append("circle")
+    .attr("class", "node")
+    .attr("r", 4)
+    .attr("cx", function(d) { return d.parent.px; })
+    .attr("cy", function(d) { return d.parent.py; });
+
+// Add entering links in the parent’s old position.
+link.enter().insert("path", ".node")
+    .attr("class", "link")
+    .attr("d", function(d) {
         var o = {x: d.source.px, y: d.source.py};
         return diagonal({source: o, target: o});
     });
