@@ -9,7 +9,7 @@
 - ref: http://bl.ocks.org/mbostock/999346 (樹狀圖同 Layer 對齊問題)
 
 ~~~
-// 讓 node 的繪製點移動
+// 讓 node & link 的繪製點移動
 // Add entering nodes in the parent’s old position.
 node.enter().append("circle")
     .attr("class", "node")
