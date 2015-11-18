@@ -6,6 +6,7 @@
 - sample02.html: 搭配 AngularJS 的範例！
 - sample01.html: 更換 .children .name 的 FieldName！
 - ref: http://nlpviz.bpodgursky.com/home
+- ref: http://bl.ocks.org/mbostock/999346 (樹狀圖同 Layer 對齊問題)
 
 # Usage
 
